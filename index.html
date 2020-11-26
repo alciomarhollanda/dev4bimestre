@@ -1,0 +1,45 @@
+<html>
+    <head>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+        <div id="app">
+            <h1> {{ message }} </h1>
+            
+            <input v-model="message"> 
+
+            <h1> Calculadora </h1>
+            <input v-model.number="n1" type="number">
+            <input v-model.number="n2" type="number">
+
+            <button v-on:click="subtracao">Subtracao</button>
+
+            <h1> Resultado = {{n1+n2}} </h1>
+
+            <h1 v-if="resultado!=undefined"> Resultado = {{resultado}} </h1>
+
+            <h1 v-if="n1==n2"> n1==n2 </h1>
+
+        </div>
+        
+        <script>
+            var app = new Vue({ 
+                el: '#app',
+                data: {
+                    message: 'Hello Vue!',
+                    n1:0,
+                    n2:0,
+                    resultado:undefined
+                },
+                methods: {
+                    subtracao: function () {
+                        this.resultado = this.n1 - this.n2;
+                    }
+                }
+            });
+
+        </script>
+    </body>
+</html>
