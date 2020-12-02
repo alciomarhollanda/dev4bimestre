@@ -17,8 +17,8 @@
         <input v-model.number="n2" type="number">
 
         <button v-on:click="subtracao">Subtracao</button>
-
-        <h1> Resultado = {{n1+n2}} </h1>
+        <button v-on:click="multi">Multiplicação</button>
+        <button v-on:click="divisao">Divisão</button>
 
         <h1 v-if="resultado!=undefined"> Resultado = {{resultado}} </h1>
 
@@ -38,6 +38,12 @@
             methods: {
                 subtracao: function() {
                     this.resultado = this.n1 - this.n2;
+                },
+                multi: function() {
+                    this.resultado = this.n1 * this.n2;
+                },
+                divisao: function() {
+                    this.resultado = this.n1 / this.n2;
                 }
             }
         });
