@@ -1,45 +1,53 @@
 <html>
-    <head>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    </head>
-    <body>
-        
-        <div id="app">
-            <h1> {{ message }} </h1>
-            
-            <input v-model="message"> 
+<head>
 
-            <h1> Calculadora </h1>
-            <input v-model.number="n1" type="number">
-            <input v-model.number="n2" type="number">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
 
-            <button v-on:click="subtracao">Subtracao</button>
+<body>
 
-            <h1> Resultado = {{n1+n2}} </h1>
+    <div id="app">
+        <h1> {{ message }} </h1>
 
-            <h1 v-if="resultado!=undefined"> Resultado = {{resultado}} </h1>
+        <input v-model="message">
 
-            <h1 v-if="n1==n2"> n1==n2 </h1>
+        <h1> Calculadora </h1>
+        <input v-model.number="n1" type="number">
+        <input v-model.number="n2" type="number">
 
-        </div>
-        
-        <script>
-            var app = new Vue({ 
-                el: '#app',
-                data: {
-                    message: 'Hello Vue!',
-                    n1:0,
-                    n2:0,
-                    resultado:undefined
+        <button v-on:click="subtracao">Subtracao</button>
+        <button v-on:click="multiplicacao">Multiplicação</button>
+        <button v-on:click="divisao">Divisão</button>
+
+        <h1 v-if="resultado!=undefined"> Resultado = {{resultado}} </h1>
+
+        <h1 v-if="n1==n2"> n1==n2 </h1>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Olá você que está acompanhando o Vue JS!',
+                n1: 0,
+                n2: 0,
+                resultado: undefined
+            },
+            methods: {
+                subtracao: function() {
+                    this.resultado = this.n1 - this.n2;
                 },
-                methods: {
-                    subtracao: function () {
-                        this.resultado = this.n1 - this.n2;
-                    }
+                multiplicacao: function() {
+                    this.resultado = this.n1 * this.n2;
+                },
+                divisao: function() {
+                    this.resultado = this.n1 / this.n2;
                 }
-            });
+            }
+        });
+    </script>
+</body>
 
-        </script>
-    </body>
 </html>
