@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body class="login_body">
+    <div class="login_div" id="login_div">
+        <h1>Sistema de Login </h1>
+        <label for="input_1">Usuário</label>
+        <input v-model="v1" class="login_input" id="input_1"  type="text">
+        <label for="input_2">Senha</label>
+        <input v-model="v2" class="login_input" id="input_2" type="text">
+        <button class="login_button" v-on:click="login">Login</button>
+        <div>{{resultado}}</div>
+        <h6>User: admin </h6>
+        <h6>Password: 123 </h6>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#login_div',
+        data: {
+            message: 'Olá você que está acompanhando o Vue JS!',
+            v1: "" ,
+            v2: "" ,
+            resultado: " "
+        },
+        methods: {
+            login: function() {
+                if(this.v1 == "admin" && this.v2 == "123" ){
+                    window.location.href = 'site.html',
+                    this.resultado = "Logado"
+                }else{
+                    this.resultado = "Usuário ou senha incorretos"
+                }
+            }
+        }
+    });
+</script>
+    
+</html>
